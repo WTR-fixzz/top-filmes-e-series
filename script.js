@@ -1,80 +1,56 @@
-const search = document.getElementById("search");
-const cards = document.querySelectorAll(".card");
-const darkBtn = document.getElementById("darkModeBtn");
+const searchInput = document.getElementById("search");
+const cards = document.querySelectorAll(".card-wrapper");
 
+searchInput.addEventListener("input", () => {
 
-search.addEventListener("input", () => {
+  const texto = searchInput.value.toLowerCase();
 
-    const value = search.value.toLowerCase();
+  cards.forEach(card => {
 
-    cards.forEach(card => {
+    const nome = card.querySelector("h3").innerText.toLowerCase();
 
-        const name = card.querySelector("h3").textContent.toLowerCase();
-
-        if (name.includes(value)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-
-    });
-
-});
-
-
-darkBtn.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-        darkBtn.textContent = "☀️ Modo Claro";
+    if (nome.includes(texto)) {
+      card.style.display = "flex";
     } else {
-        darkBtn.textContent = "🌙 Modo Escuro";
+      card.style.display = "none";
     }
 
-});
+  });
 
+});
 
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
+document.querySelectorAll(".favBtn").forEach(btn => {
 
-function salvarFavoritos() {
-    localStorage.setItem("favoritos", JSON.stringify(favoritos));
-}
+  const card = btn.closest(".card-wrapper");
+  const nome = card.querySelector("h3").innerText;
 
+  if (favoritos.includes(nome)) {
+    btn.style.opacity = "1";
+  } else {
+    btn.style.opacity = "0.4";
+  }
 
-cards.forEach((card, index) => {
+  btn.addEventListener("click", (e) => {
 
-    const titulo = card.querySelector("h3").textContent;
+    e.preventDefault();
+    e.stopPropagation();
 
-    const favBtn = document.createElement("button");
-    favBtn.classList.add("favBtn");
+    if (favoritos.includes(nome)) {
 
-    if (favoritos.includes(titulo)) {
-        favBtn.textContent = "❤️";
-    }else {
-        favBtn.textContent = "🤍";
-}
+      favoritos = favoritos.filter(item => item !== nome);
+      btn.style.opacity = "0.4";
 
-
-favBtn.addEventListener("click", () => {
-
-    if (favoritos.includes(titulo)) {
-        favoritos = favoritos.filter(f => f !== titulo);
-        favBtn.textContent = "🤍";
     } else {
-        favoritos.push(titulo);
-        favBtn.textContent = "❤️";
+
+      favoritos.push(nome);
+      btn.style.opacity = "1";
+
     }
 
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
 
-    salvarFavoritos();
-
-
-});
-
-
-card.appendChild(favBtn);
-
+  });
 
 });

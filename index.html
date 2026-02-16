@@ -11,60 +11,97 @@
 
 <body>
 
-    <h1>🎬 Top Filmes</h1>
+    <div class="top-bar">
 
-    <button id="darkModeBtn">🌙 Modo Escuro</button>
+        <div class="left-buttons">
 
-    <input
-      type="text"
-      id="search"
-      placeholder="🔍 Buscar filme ou série.."
-    >  
+            <button id="favPageBtn" onclick="window.location.href='favoritos.html'">❤️ Favoritos</button>
+
+            <button id="darkModeBtn">🌙 Modo Escuro</button>
+
+        </div>    
+
+        <input
+          type="text"
+          id="search"
+          placeholder="🔍 Buscar filme ou série.."
+        >
+
+    </div>
+
+    <h1>🎬 Top Filmes</h1>  
 
     <div class="section">
 
-        <ol class="lista">
+        <ul class="lista">
 
             <li>Deadpool</li>
             <li>Vingadores</li>
             <li>Harry Potter</li>
         
-        </ol>
+        </ul>
 
         <div class="cards">
 
-            <div class="card">
-                
-                <a href="https://www.youtube.com/watch?v=Q9X-bAE8KTc" target="_blank">
-                    <img src="imagens/deadpool.jfif" alt="Deadpool">  
-                </a>
+            <div class="card-wrapper">
 
-                <h3>Deadpool</h3>
-                <p>⭐⭐⭐⭐⭐</p>    
+                <a href="filme.html?nome=Deadpool" class="card-link" >
+                    
+                    <img src="imagens/deadpool.jfif" alt="Deadpool">
+
+                    <h3>Deadpool</h3>   
+                
+                </a> 
+                
+                <div class="card-info">
+
+                    <p>⭐⭐⭐⭐⭐</p>
+
+                    <button class="favBtn">❤️</button>
+                
+                </div>
             
-            </div>
+            </div>      
 
-            <div class="card">
-                
-                <a href="https://www.youtube.com/watch?v=KeNEGtsCWEk" target="_blank">
+            <div class="card-wrapper">
+
+                <a href="filme.html?nome=Vingadores%20Ultimato" class="card-link">
+
                     <img src="imagens/vingadores.jfif" alt="Vingadores">
+
+                    <h3>Vingadores</h3>
+
                 </a>
 
-                <h3>Vingadores</h3>
-                <p>⭐⭐⭐⭐⭐</p>
+                <div class="card-info">
+
+                    <p>⭐⭐⭐⭐⭐</p>
+
+                    <button class="favBtn">❤️</button>
+
+                </div>
 
             </div>
 
-            <div class="card">
+            <div class="card-wrapper">
 
-                <a href="https://www.youtube.com/watch?v=E79fa8bLfPA" target="_blank">
+                <a href="filme.html?nome=Harry%20Potter" class="card-link">
+                
                     <img src="imagens/harrypotter.jpg" alt="Harry Potter">
+
+                    <h3>Harry Potter</h3>
+            
                 </a>
 
-                <h3>Harry Potter</h3>
-                <p>⭐⭐⭐⭐</p>
+                <div class="card-info">
 
-            </div>    
+                    <p>⭐⭐⭐⭐</p>
+
+                    <button class="favBtn">❤️</button>
+
+                </div>
+
+            </div> 
         
         </div>
 
@@ -74,45 +111,73 @@
 
     <div class="section">
 
-        <ol class="lista">
+        <ul class="lista">
 
             <li>Dexter</li>
             <li>Breaking Bad</li>
             <li>Better Call Soul</li>
         
-        </ol>
+        </ul>
 
         <div class="cards">
 
-            <div class="card">
+            <div class="card-wrapper">
 
-                <a href="https://www.youtube.com/watch?v=YQeUmSD1c3g" target="_blank">
+                <a href="filme.html?nome=Dexter" class="card-link">
+                    
                     <img src="imagens/dexter.jpg" alt="Dexter">
+
+                    <h3>Dexter</h3>
+
                 </a>
 
-                <h3>Dexter</h3>
-                <p>⭐⭐⭐⭐⭐</p>
+                <div class="card-info">
+
+                    <p>⭐⭐⭐⭐⭐</p>
+
+                    <button class="favBtn">❤️</button>
+
+                </div>
 
             </div>
-            
-            <div class="card">
 
-                <a href="https://www.youtube.com/watch?v=_-Nv0JOcGxg" target="_blank">
+            <div class="card-wrapper">
+
+                <a href="filme.html?nome=Breaking%20Bad" class="card-link">
+
                     <img src="imagens/breakingbad.jpg" alt="breaking Bad">
-                </a>
 
-                <h3>Breaking Bad</h3>
-                <p>⭐⭐⭐⭐⭐</p>
+                    <h3>Breaking Bad</h3>
+
+                </a> 
+
+                <div class="card-info">
+
+                    <p>⭐⭐⭐⭐⭐</p>
+
+                    <button class="favBtn">❤️</button>
+
+                </div>
 
             </div>
+
+            <div class="card-wrapper">
             
-            <div class="card">
-                <a href="https://www.youtube.com/watch?v=zzy6wWjFONY" target="_blank">
+                <a href="filme.html?nome=Better%20Call%20Saul" class="card-link">
+
                     <img src="imagens/bettercallsoul.jpg" alt="Better Call Soul">
-                </a>
                 
-                <h3>Better Call Saul</h3>
-                <p>⭐⭐⭐⭐</p>
+                    <h3>Better Call Saul</h3>
+
+                </a>
+
+                <div class="card-info">
+
+                    <p>⭐⭐⭐⭐</p>
+
+                    <button class="favBtn">❤️</button>
+
+                </div>
 
             </div>
                 
@@ -120,6 +185,7 @@
 
     </div>
 
+<script src="darkmode.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
